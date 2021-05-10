@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/awork-server/databases/AWork",
+      "type": "mssql.azure",
+      "connectionId": "DefaultConnection",
+      "secretStore": "AzureAppSettings"
+    },
+    "apis1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.ApiManagement/service/AWorkCandidateAPI/apis/AWork-API",
+      "type": "apis.azure",
+      "apiEndpoint": "https://aworkcandidateapi.azure-api.net/"
+    }
+  }
+}

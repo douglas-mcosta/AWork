@@ -1,0 +1,166 @@
+
+    <app-card-default>
+    <i icon class="fa fa-phone-square fa-3x"></i>
+     <span title>Contatos</span>
+     <span subtitle>Informe seus melhores contatos</span>
+     <div body>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class=" text-dark">
+                    <th>
+                        Nº
+                    </th>
+                    <th class="text-center">
+                        Tipo
+                    </th>
+                    <th class="text-center">
+                        Favorito
+                    </th>
+                    <th>
+                    </th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let phone of phones; let i = index">
+                        <td>
+                           <span>
+                                {{ phone.phoneNumber | telefone}}
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-outline-success" *ngIf="phone.phoneType === 0">
+                                <i class="material-icons">smartphone</i> 
+                                {{phone.phoneType | phonetype}}
+                            </button>
+    
+                            <button class="btn btn-sm btn-outline-info" *ngIf="phone.phoneType === 1">
+                                <i class="material-icons">call</i>
+                                {{phone.phoneType | phonetype}}
+                            </button>
+                        </td>
+                        <td class="text-center">
+                            <i class="material-icons text-warning" *ngIf="phone.isDefault">star</i>
+                           <a (click)="changeFavoritePhone(phone)">
+
+                               <i class="material-icons" *ngIf="!phone.isDefault">star_border</i>
+                           </a> 
+                        </td>
+                        <td class="text-right">
+                            <button class="btn btn-info btn-sm" (click)="openModal(content,(phone))"><i class="material-icons">create</i></button>
+                            <button class="btn btn-danger btn-sm" (click)="deletePhone(phone.id)"><i class="material-icons">delete</i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-sm btn-outline-info pull-right" *ngIf="phones.length < 3" (click)="openModal(newPhone,null)" ><i class="fa fa-plus"></i> Novo</button>
+
+        </div>
+    </div>
+    </app-card-default>
+    
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-pencil-square-o"></i> Editar Telefone</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form novalidate="novalidate" [formGroup]="phoneForm">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Tipo</mat-label>
+                            <mat-select formControlName="phoneType">
+                              <mat-option *ngFor="let phone of phoneTypes" [value]="phone.value">
+                                {{phone.description}}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <span class="text-danger">
+                            <p *ngIf="phoneForm.get('phoneType').errors?.required && (phoneForm.get('phoneType').dirty || phoneForm.get('phoneType').touched)">
+                                Selecione o tipo do telefone.
+                            </p>
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Telefone" type="text" formControlName="phoneNumber" telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
+                            </mat-form-field>  
+                            <span class="text-danger">
+                                <p *ngIf="phoneForm.get('phoneNumber').errors?.required && (phoneForm.get('phoneNumber').dirty || phoneForm.get('phoneNumber').touched)">
+                                   Informe o número do telefone com DDD.
+                                </p>
+                                <p *ngIf="phoneForm.get('phoneNumber').errors?.telefone && (phoneForm.get('phoneNumber').dirty || phoneForm.get('phoneNumber').touched)">
+                                    Telefone invalido.
+                                 </p>
+                            </span>                   
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" (click)="updatePhone()" [disabled]="!phoneForm.valid"><i class="fa fa-save"></i></button>
+        </div>
+      </ng-template>
+
+      <ng-template #newPhone let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-briefcase"></i> Editar Telefone</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form novalidate="novalidate" [formGroup]="phoneForm">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-12">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Tipo</mat-label>
+                            <mat-select formControlName="phoneType">
+                              <mat-option *ngFor="let phone of phoneTypes" [value]="phone.value">
+                                {{phone.description}}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <span class="text-danger">
+                            <p *ngIf="phoneForm.get('phoneType').errors?.required && (phoneForm.get('phoneType').dirty || phoneForm.get('phoneType').touched)">
+                                Selecione o tipo do telefone.
+                            </p>
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <mat-form-field class="example-full-width">
+                                <input matInput placeholder="Telefone" type="text" formControlName="phoneNumber" telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
+                            </mat-form-field>  
+                            <span class="text-danger">
+                                <p *ngIf="phoneForm.get('phoneNumber').errors?.required && (phoneForm.get('phoneNumber').dirty || phoneForm.get('phoneNumber').touched)">
+                                   Informe o número do telefone com DDD.
+                                </p>
+                                <p *ngIf="phoneForm.get('phoneNumber').errors?.telefone && (phoneForm.get('phoneNumber').dirty || phoneForm.get('phoneNumber').touched)">
+                                    Telefone invalido.
+                                 </p>
+                            </span>                   
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" (click)="addPhone()" [disabled]="!phoneForm.valid"><i class="fa fa-save"></i></button>
+        </div>
+      </ng-template>

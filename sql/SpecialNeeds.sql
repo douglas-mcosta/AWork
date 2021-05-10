@@ -1,0 +1,6 @@
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'34cdebd8-694b-4219-b408-099f1bd4100a', N'Deficiência visual')
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'a03de91e-7343-4e77-a1e7-0e83b4bf9bb1', N'Deficiência auditiva')
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'a5e9340b-9985-4edc-b9bd-323821c100b2', N'Deficiência física')
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'adbf3758-a79e-4cc2-816f-3e73def81688', N'Deficiência múltipla')
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'17c06179-0d93-4b54-8c5d-5c8269856337', N'Deficiência mental')
+INSERT [dbo].[SpecialNeeds] ([Id], [Name]) VALUES (N'8bb77161-9f1b-46eb-b92a-cef26b02f804', N'Nenhuma')

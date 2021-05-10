@@ -1,0 +1,5 @@
+INSERT [dbo].[MaritalStatus] ([Id], [Name]) VALUES (N'462b7780-0db4-4364-bd5a-43d654a2a2ee', N'Viúvo')
+INSERT [dbo].[MaritalStatus] ([Id], [Name]) VALUES (N'd024e16e-e6d5-4a51-8dd0-77388ca001f9', N'Separado')
+INSERT [dbo].[MaritalStatus] ([Id], [Name]) VALUES (N'b1e3e7ff-45b6-420f-a0f9-c27d75199d51', N'Solteiro')
+INSERT [dbo].[MaritalStatus] ([Id], [Name]) VALUES (N'c4c1deaa-3374-4bd5-b456-e4f91f32ef9f', N'Casado')
+INSERT [dbo].[MaritalStatus] ([Id], [Name]) VALUES (N'a59f1a59-146f-4958-a6c1-f1af0460a3b8', N'Divorciado')

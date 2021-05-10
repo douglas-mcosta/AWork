@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Ethnocentric;
+    src: url("/assets/fonts/ethnocentricrg.ttf");
+  }
+.text-logo{
+    font-family: "Ethnocentric" !important;
+}
+/*Ajuste Modal*/
+.cdk-overlay-container{ z-index: 1090; } 

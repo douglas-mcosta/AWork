@@ -1,0 +1,151 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-clip-rotate-multiple"
+  [fullScreen]="true"
+>
+  <p style="color: white">Carregando...</p>
+</ngx-spinner>
+<div class="row">
+  <div class="col-md-4">
+    <app-card-photo [person]="personProfile"></app-card-photo>
+  </div>
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-info">
+        <div class="row">
+          <div class="col-md-1">
+            <i class="fa fa-address-book fa-3x"></i>
+          </div>
+          <div class="col-md-11">
+            <h4 class="card-title pl-1">Dados Pessoais</h4>
+            <p class="card-category pl-1">
+              Dados atualizados aumentação as chances de contratação
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form (ngSubmit)="updateCandidate()" [formGroup]="myProfileForm">
+          <input type="hidden" name="id" />
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="CPF"
+                  formControlName="cpf"
+                  cpf
+                  [textMask]="{ mask: MASKS.cpf.textMask }"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" formControlName="email" />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Primeiro Nome"
+                  type="text"
+                  formControlName="firstName"
+                />
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input
+                  matInput
+                  placeholder="Sobrenome"
+                  type="text"
+                  formControlName="lastName"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Gênero</mat-label>
+                <mat-select formControlName="gender">
+                  <mat-option
+                    *ngFor="let gender of genders"
+                    [value]="gender.value"
+                  >
+                    {{ gender.description }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Estado Civil</mat-label>
+                <mat-select formControlName="maritalStatusId">
+                  <mat-option
+                    *ngFor="let marital of maritalStatus | async"
+                    [value]="marital.value"
+                  >
+                    {{ marital.description }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input formControlName="nationalityId"
+                id="typeahead-prevent-manual-entry"
+                type="text"
+                class="form-control"
+                [ngbTypeahead]="search"
+                [inputFormatter]="formatter"
+                [resultFormatter]="formatter"
+                [(ngModel)]="selectedNationality"
+                [editable]="false"
+              />
+              <!-- <mat-form-field appearance="legacy" class="example-full-width">
+                            <mat-label>Nacionalidade</mat-label>
+                            <mat-select formControlName="nationalityId">
+                                <mat-option *ngFor="let item of nationality | async" [value]="item.value">
+                                {{item.description}}
+                                </mat-option>
+                            </mat-select>
+                            </mat-form-field>                                 -->
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Religião</mat-label>
+                <mat-select formControlName="religionId">
+                  <mat-option
+                    *ngFor="let item of religion | async"
+                    [value]="item.value"
+                  >
+                    {{ item.description }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <button
+            mat-raised-button
+            type="submit"
+            class="btn btn-info pull-right"
+            name="btnSalvar"
+            [disabled]="
+              (!myProfileForm.dirty && myProfileForm.valid) || isSaving
+            "
+          >
+            Salvar
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

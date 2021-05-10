@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Notifications\**" />
+    <EmbeddedResource Remove="Notifications\**" />
+    <None Remove="Notifications\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\INotifier.cs" />
+    <Compile Remove="Interfaces\Repository\IAcademicEducationRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IJobTitleInterestedRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IJobTitleRepository.cs" />
+    <Compile Remove="Interfaces\Repository\ILanguagePersonRepository.cs" />
+    <Compile Remove="Interfaces\Repository\ILanguageRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IMaritalStatusRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IPhoneRepository.cs" />
+    <Compile Remove="Interfaces\Repository\IRepository.cs" />
+    <Compile Remove="Models\Contract.cs" />
+    <Compile Remove="Models\Interview.cs" />
+    <Compile Remove="Models\Job.cs" />
+    <Compile Remove="Models\JobSubscribe.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\AWork.Core\AWork.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Mappings\InterviewMapping.cs" />
+    <Compile Remove="Mappings\JobMapping.cs" />
+    <Compile Remove="Mappings\JobSubscribeMapping.cs" />
+    <Compile Remove="Repository\AcademicEducationRepository.cs" />
+    <Compile Remove="Repository\JobTitleInterestedRepository.cs" />
+    <Compile Remove="Repository\JobTitleRepository.cs" />
+    <Compile Remove="Repository\LanguagePersonRepository.cs" />
+    <Compile Remove="Repository\LanguageRepository.cs" />
+    <Compile Remove="Repository\MaritalStatusRepository.cs" />
+    <Compile Remove="Repository\PhoneRepository.cs" />
+    <Compile Remove="Repository\Repository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\AWork.Core\AWork.Core.csproj" />
+    <ProjectReference Include="..\AWork.Candidate.Domain\AWork.Candidates.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

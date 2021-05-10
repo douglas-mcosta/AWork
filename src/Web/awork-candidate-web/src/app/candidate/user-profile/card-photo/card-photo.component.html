@@ -1,0 +1,39 @@
+<div class="card card-profile">
+    <div class="card-avatar">
+        <a href="javascript:void(0)">
+            <img class="img" [src]="person.profileBase64" />
+        </a>
+    </div>
+    <div class="card-body">
+        <h6 class="card-category text-gray">{{jobTitleInteresteds}}</h6>
+        <h4 class="card-title">{{person.fullName}}</h4>
+        <h6 class="card-category text-gray">Resumo</h6>
+        <p class="card-description">
+            {{summary}}
+            <button class="btn btn-outline-info btn-sm" *ngIf="!summary" (click)="openModal(summaryModel)"><i class="fa fa-plus"></i> Inserir Resumo</button>
+        </p>       
+    </div>
+</div>
+
+  
+<ng-template #summaryModel let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-align-justify"></i> Resumo Profissional</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="text-gray">Utilize esse espaço para descrever suas experiências e conquistas em sua área.</p>
+
+      <form novalidate="novalidate">
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+    </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-info"  [disabled]="true"><i class="fa fa-save"></i></button>
+</div>
+  </ng-template>

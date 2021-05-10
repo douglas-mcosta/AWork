@@ -1,0 +1,10 @@
+
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'e6a2214b-2e48-4e7c-8e18-037e0effb2b2', N'Curso extra-curricular / Profissionalizante')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'bdaaf0c9-9987-41cc-99e6-449068aafea3', N'Ensino Médio (2º Grau)')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'87ddfddc-62a3-485b-9119-4aae44f576d4', N'Ensino Superior')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'c9801771-7762-4ed5-80a0-57febffe8ee9', N'Outro')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'e11d52a4-8fd6-480f-ae8a-60890b64c18d', N'Pós-graduação - Doutorado')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'436d5dd0-1981-4565-acbf-83395dc0093f', N'Ensino Fundamental (1º grau)')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'b985c62b-3c1e-4b59-8ae8-a28beb5b47bf', N'Pós-graduação - Especialização/MBA')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'02070427-4e42-4ac0-bcab-ac2244c6ce93', N'Curso Técnico')
+INSERT [dbo].[CourseLevels] ([Id], [CourseLevelName]) VALUES (N'21584b0d-bb26-4c93-b734-b09ce149a191', N'Pós-graduação - Mestrado')

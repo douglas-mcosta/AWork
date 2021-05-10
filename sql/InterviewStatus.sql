@@ -1,0 +1,5 @@
+INSERT [dbo].[InterviewStatus] ([Id], [Name], [Color]) VALUES (N'f8e9b258-929a-40a7-80da-0915e1a53968', N'Preenche parcialmente as qualificações técnicas para o cargo', N'255, 106, 0')
+INSERT [dbo].[InterviewStatus] ([Id], [Name], [Color]) VALUES (N'5832a39f-fa8c-419a-97dd-5af522ca09a5', N'Não preenche as qualificações técnicas para o cargo', N'255, 0, 0')
+INSERT [dbo].[InterviewStatus] ([Id], [Name], [Color]) VALUES (N'eb7917cd-31cb-4195-ab76-843f88076054', N'Candidato não compareceu na Entrevista', N'0, 0, 0')
+INSERT [dbo].[InterviewStatus] ([Id], [Name], [Color]) VALUES (N'f6d05341-34c5-48d4-9dc3-bb23abe73b41', N'Preenche plenamente as qualificações técnicas para o cargo', N'10, 108, 30')
+INSERT [dbo].[InterviewStatus] ([Id], [Name], [Color]) VALUES (N'536d909e-84a1-4993-8fe5-bd0124c422cd', N'Candidato desistiu da vaga', N'128, 128, 128')

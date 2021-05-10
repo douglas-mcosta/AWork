@@ -1,0 +1,116 @@
+<app-card-default>
+    <i icon class="fa fa-address-book fa-3x"></i>
+    <span title>Endereço</span>
+    <span subtitle>Informe seu endereço</span>
+    <div body>
+        <div class="row">
+            <div class="col-md-12">
+                <strong>Endereço:</strong>
+                <span class="text-gray" *ngIf="address.id">
+                    {{address.street}} - {{address.complement}} - {{address.district}} - {{address.zipCode}} - {{address.city}}/{{address.state}}
+                 </span> 
+                 <button class="btn btn-outline-info btn-sm float-right" (click)="openModalEdit(addressModal)" *ngIf="address.id" ><i class="fa fa-pencil"></i> Editar</button>
+                 <button class="btn btn-outline-info btn-sm float-right" (click)="openModalAdd(addressModal)" *ngIf="!address.id"><i class="fa fa-plus"></i> Cadastrar</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="address.id">
+            <div class="col-md-12">
+                <iframe width="100%" height="450" frameborder="0" style="border:0; padding-bottom: 50px;" [src]="addressMap" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</app-card-default>
+
+<ng-template #addressModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-address-book-o"></i> Endereço</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form novalidate="novalidate" (ngSubmit)="submitAddress()" [formGroup]="addressForm">
+          <div class="form-group">
+              <input type="text" 
+              class="form-control"
+              [ngClass]="{'is-invalid':displayMessage.zipCode }"
+              (blur)="SearchCep($event.target.value)"
+              placeholder="CEP"
+              formControlName="zipCode"
+              [textMask]="{mask: MASKS.cep.textMask }">
+              <p class="text-danger" *ngIf="displayMessage.zipCode" [innerHTML]="displayMessage.zipCode">
+            </p>
+          </div>
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Logradouro"
+            [ngClass]="{'is-invalid':displayMessage.street }"
+            (blur)="validateForm()"
+            formControlName="street">
+            <p class="text-danger" *ngIf="displayMessage.street" [innerHTML]="displayMessage.street">
+        </div>
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Número"
+            [ngClass]="{'is-invalid':displayMessage.number }"
+            (blur)="validateForm()"
+            formControlName="number">
+            <p class="text-danger" *ngIf="displayMessage.number" [innerHTML]="displayMessage.number">
+        </div>
+        <div class="form-group">
+            <input type="text"
+             class="form-control"
+             placeholder="Complemento"
+             [ngClass]="{'is-invalid':displayMessage.complement }"
+             (blur)="validateForm()"
+             formControlName="complement">
+             <p class="text-danger" *ngIf="displayMessage.complement" [innerHTML]="displayMessage.complement">
+        </div>
+        <div class="form-group">
+            <input type="text" 
+            class="form-control"
+            placeholder="Bairro"
+            [ngClass]="{'is-invalid':displayMessage.district }"
+            (blur)="validateForm()"
+            formControlName="district">
+            <p class="text-danger" *ngIf="displayMessage.district" [innerHTML]="displayMessage.district">
+        </div>
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Cidade"
+            [ngClass]="{'is-invalid':displayMessage.city }"
+            (blur)="validateForm()"
+            formControlName="city">
+            <p class="text-danger" *ngIf="displayMessage.city" [innerHTML]="displayMessage.city">
+        </div>   
+        <div class="form-group">
+            <input type="text"
+            class="form-control"
+            placeholder="Estado"
+            [ngClass]="{'is-invalid':displayMessage.state }"
+            (blur)="validateForm()"
+            formControlName="state">
+            <p class="text-danger" *ngIf="displayMessage.state" [innerHTML]="displayMessage.state">
+        </div>   
+        
+        <div class="form-group">
+            <mat-form-field appearance="legacy" class="example-full-width"  (blur)="validateForm()">
+                <mat-label>País</mat-label>
+                <mat-select formControlName="countryId">
+                    <mat-option *ngFor="let item of countries | async" [value]="item.value">
+                   {{item.description}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field> 
+                <p class="text-danger" *ngIf="displayMessage.countryId" [innerHTML]="displayMessage.countryId">
+        </div> 
+      
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" type="submit" [disabled]="!addressForm.valid"><i class="fa fa-save"></i></button>
+          </div>
+        </form>
+    </div>
+</ng-template>

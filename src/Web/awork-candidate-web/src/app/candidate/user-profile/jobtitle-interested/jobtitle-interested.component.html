@@ -1,0 +1,92 @@
+<app-card-default>
+  <i icon class="fa fa-briefcase fa-3x"></i>
+  <span title>Cargos de Interesse</span>
+  <span subtitle>Selecione três cargos</span>
+  <div body>
+    <table class="table">
+      <thead class=" text-primary">
+          <th>
+              Cargo
+          </th>
+          <th class="text-center">
+              Maior Preferencia
+          </th>
+          <th>
+              
+          </th>
+      </thead>
+      <tbody>
+          <tr *ngFor="let job of jobTitleInteresteds">
+              <td>
+                 <span>
+                     {{job.jobTitleName}}
+                  </span>
+              </td>
+              <td class="text-center">
+                <i class="material-icons text-warning" *ngIf="job.isDefault">star</i>
+                <i class="material-icons" *ngIf="!job.isDefault" (click)="ChangeFavoriteJobTitleInterested(job)">star_border</i>
+              </td>
+              <td class="text-right">
+                  <button class="btn btn-sm btn-danger" (click)="confirmDeleteJobTitleInterested(job)"><i class="material-icons">delete</i></button>
+              </td>              
+          </tr>
+      </tbody>
+  </table>
+  <button class="btn btn-outline-info btn-sm pull-right" (click)='openModel(content)'  *ngIf="jobTitleInteresteds.length < 3"><i class="fa fa-plus"></i> Novo</button>
+
+  </div>
+</app-card-default>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-briefcase"></i> Adicionar Cardo de Interesse</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form novalidate="novalidate" [formGroup]="jobTitleInterestedForm">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Área de Atuação</mat-label>
+                <mat-select formControlName="occupationArea">
+                    <mat-option *ngFor="let occupationArea of occupationArea$ | async" [value]="occupationArea.value">
+                    {{occupationArea.description}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> 
+            <span class="text-danger" *ngIf="(jobTitleInterestedForm.get('occupationArea').dirty || jobTitleInterestedForm.get('occupationArea').touched) && jobTitleInterestedForm.get('occupationArea').errors?.required">
+              <p>
+                Selecione uma área de atuação
+              </p>
+            </span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field appearance="legacy" class="example-full-width">
+                <mat-label>Função</mat-label>
+                <mat-select formControlName="jobTitleId">
+                    <mat-option *ngFor="let job of jobTitle" [value]="job.value">
+                    {{job.description}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>  
+            <span class="text-danger" *ngIf="(jobTitleInterestedForm.get('jobTitleId').dirty || jobTitleInterestedForm.get('jobTitleId').touched) && jobTitleInterestedForm.get('jobTitleId').errors?.required">
+              <p>
+                Selecione uma área de atuação
+              </p>
+            </span>
+            </div>
+          </div>
+          
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-info" [disabled]="!jobTitleInterestedForm.valid" (click)="addJobTitleInterested()"><i class="fa fa-save"></i></button>
+    </div>
+  </ng-template>

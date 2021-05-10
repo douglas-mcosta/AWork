@@ -1,0 +1,73 @@
+<app-card-default>
+  <i icon class="fa fa-language fa-3x"></i>
+  <span title>Idiomas</span>
+  <span subtitle>Informe o idioma e seu nível de fluência</span>
+  <div body>
+    <table class="table">
+        <thead class=" text-primary">
+            <th>
+                Idioma
+            </th>
+            <th class="text-center">
+               Fluência
+            </th>
+            <th>
+                
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lang of languages">
+                <td>
+                   <span>
+                       {{lang.languageName}}
+                    </span>
+                </td>
+                <td class="text-center">
+                    <ngb-rating class="text-warning star" [(rate)]="lang.languageLevel" (rateChange)="ratingLanguageLevel(lang)" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly"></ngb-rating>
+                </td>
+                <td class="text-right">
+                    <button class="btn btn-sm btn-danger"><i class="material-icons">delete</i></button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-sm btn-outline-info pull-right" (click)="openModal(languageModal)"><i class="fa fa-plus"></i> Novo</button>
+  </div>
+</app-card-default>
+
+<ng-template #languageModal let-modal>
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-language"></i> Adicionar Idioma</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<form (ngSubmit)="addLanguagePerson()" [formGroup]="languagePersonForm">
+<div class="modal-body">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Idioma</mat-label>
+                <mat-select formControlName="languageId">
+                  <mat-option *ngFor="let lang of languageDropdown$ | async" [value]="lang.value">
+                    {{lang.description}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span class="text-danger" *ngIf="languagePersonForm.controls.languageId.errors?.required">
+                <p>Selecione um idioma.</p>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Nível de Fluência: </label><br/> 
+            <ngb-rating class="text-warning star28" [(rate)]="language.languageLevel" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly" formControlName="languageLevel"></ngb-rating>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-info" [disabled]="!languagePersonForm.valid && languagePersonForm.dirty"><i class="fa fa-save"></i></button>
+    </div>
+</form>
+</ng-template>
+
+

@@ -1,10 +1,10 @@
-﻿using AWork.Candidates.API.Application.Queries.ViewModels;
-using AWork.Core.DomainObjects.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Queries.ViewModels;
+using AWork.Core.DomainObjects.Enums;
 
-namespace AWork.Candidates.API.Application.Interfaces
+namespace AWork.Candidatos.API.Application.Interfaces
 {
     public interface ICandidateAppService
     {

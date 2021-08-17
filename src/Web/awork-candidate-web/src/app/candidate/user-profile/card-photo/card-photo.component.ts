@@ -18,7 +18,7 @@ export class CardPhotoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.jobTitleInteresteds = this.person.jobTitleInteresteds.filter(x=>x.isDefault)[0].jobTitleName;
+    // this.jobTitleInteresteds = this.person.jobTitleInteresteds.filter(x=>x.isDefault)[0].jobTitleName;
   }
 
   editSummary(){

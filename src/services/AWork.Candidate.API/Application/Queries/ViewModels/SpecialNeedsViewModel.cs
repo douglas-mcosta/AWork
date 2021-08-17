@@ -1,6 +1,6 @@
 using System;
 
-namespace AWork.Candidates.API.Application.Queries.ViewModels
+namespace AWork.Candidatos.API.Application.Queries.ViewModels
 {
     public class SpecialNeedsViewModel
     {

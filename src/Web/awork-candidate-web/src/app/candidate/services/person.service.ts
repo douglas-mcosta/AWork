@@ -29,7 +29,7 @@ export class PersonService extends BaseService {
 
     return this.http
       .get<Person>(
-        `${this.urlServiceV1}person/${userId}`,
+        `${this.urlServiceV1}candidate`,
         this.getHeadersAuth()
       )
       .pipe(
@@ -39,7 +39,7 @@ export class PersonService extends BaseService {
   }
 
   updatePersonData(person: PersonEdit): Observable<Person>{
-   return this.http.put(`${this.urlServiceV1}person/${person.id}`,person,this.getHeadersAuth())
+   return this.http.put(`${this.urlServiceV1}candidate/${person.id}`,person,this.getHeadersAuth())
     .pipe(
       map(this.extractData),
       catchError(this.serviceError)
@@ -48,28 +48,28 @@ export class PersonService extends BaseService {
 
   // Phone
   AddPersonPhone(phone: Phone): Observable<Phone>{
-    return  this.http.post(`${this.urlServiceV1}person/phone`,phone,this.getHeadersAuth())
+    return  this.http.post(`${this.urlServiceV1}candidate/phone`,phone,this.getHeadersAuth())
    .pipe(
      map(this.extractData),
      catchError(this.serviceError)
    )
   }
   updatePhonePerson(phone: Phone): Observable<Phone>{
-    return  this.http.put(`${this.urlServiceV1}person/phone/${phone.id}`,phone,this.getHeadersAuth())
+    return  this.http.put(`${this.urlServiceV1}candidate/phone/${phone.id}`,phone,this.getHeadersAuth())
    .pipe(
      map(this.extractData),
      catchError(this.serviceError)
    )
   }
   deletePhonePerson(phoneId: string): Observable<Phone>{
-    return  this.http.delete(`${this.urlServiceV1}person/phone/${phoneId}`,this.getHeadersAuth())
+    return  this.http.delete(`${this.urlServiceV1}candidate/phone/${phoneId}`,this.getHeadersAuth())
    .pipe(
      map(this.extractData),
      catchError(this.serviceError)
    )
   }
   updatePhoneFavorite(phone: Phone): Observable<Phone[]>{
-    return  this.http.put(`${this.urlServiceV1}person/phone/change-favorite-phone/${phone.id}`,phone,this.getHeadersAuth())
+    return  this.http.put(`${this.urlServiceV1}candidate/phone/change-favorite-phone/${phone.id}`,phone,this.getHeadersAuth())
    .pipe(
      map(this.extractData),
      catchError(this.serviceError)
@@ -78,7 +78,7 @@ export class PersonService extends BaseService {
 
   //JobTitleInterested
   addJobTitleInterested(jobTitleInterested: JobTitleInterested){
-    return this.http.post(`${this.urlServiceV1}person/jobtitle-interested`,jobTitleInterested,this.getHeadersAuth())
+    return this.http.post(`${this.urlServiceV1}candidate/jobtitle-interested`,jobTitleInterested,this.getHeadersAuth())
     .pipe(
       map(this.extractData),
       catchError(this.serviceError)
@@ -86,7 +86,7 @@ export class PersonService extends BaseService {
   }
 
   updateJobTitleInterestedFavorite(jobTitleInterested: JobTitleInterested): Observable<JobTitleInterested[]>{
-    return  this.http.put(`${this.urlServiceV1}person/jobtitle-interested/change-favorite-jobtitle-interested/${jobTitleInterested.id}`,jobTitleInterested,this.getHeadersAuth())
+    return  this.http.put(`${this.urlServiceV1}candidate/jobtitle-interested/change-favorite-jobtitle-interested/${jobTitleInterested.id}`,jobTitleInterested,this.getHeadersAuth())
    .pipe(
      map(this.extractData),
      catchError(this.serviceError)
@@ -94,7 +94,7 @@ export class PersonService extends BaseService {
   }
 
   deleteJobTitleInterested(jobTitleInterestedId: string){
-    return this.http.delete(`${this.urlServiceV1}person/jobtitle-interested/${jobTitleInterestedId}`,this.getHeadersAuth())
+    return this.http.delete(`${this.urlServiceV1}candidate/jobtitle-interested/${jobTitleInterestedId}`,this.getHeadersAuth())
     .pipe(
       catchError(this.serviceError)
     )
@@ -109,7 +109,7 @@ export class PersonService extends BaseService {
 
 //Address
 addPersonAddress(personId: string, address: Address){
-  return this.http.post(`${this.urlServiceV1}person/address/${personId}`,address,this.getHeadersAuth())
+  return this.http.post(`${this.urlServiceV1}candidate/address/`,address,this.getHeadersAuth())
   .pipe(
     map(this.extractData),
     catchError(this.serviceError)
@@ -117,7 +117,7 @@ addPersonAddress(personId: string, address: Address){
 }
 
 updatePersonAddress(personId: string, address: Address){
-  return this.http.put(`${this.urlServiceV1}person/address/${personId}`,address,this.getHeadersAuth())
+  return this.http.put(`${this.urlServiceV1}candidate/address/`,address,this.getHeadersAuth())
   .pipe(
     map(this.extractData),
     catchError(this.serviceError)
@@ -127,14 +127,14 @@ updatePersonAddress(personId: string, address: Address){
 //Language
 
 addPersonLanguage(languagePerson: Language){
-  return this.http.post(`${this.urlServiceV1}person/language/`, languagePerson,this.getHeadersAuth())
+  return this.http.post(`${this.urlServiceV1}candidate/language/`, languagePerson,this.getHeadersAuth())
   .pipe(
     map(this.extractData),
     catchError(this.serviceError)
   )
 }
 updateLanguageLevel(languagePersonId: string, languageLevel: number){
-  return this.http.put(`${this.urlServiceV1}person/language/${languagePersonId}`, languageLevel,this.getHeadersAuth())
+  return this.http.put(`${this.urlServiceV1}candidate/language/${languagePersonId}`, languageLevel,this.getHeadersAuth())
   .pipe(
     map(this.extractData),
     catchError(this.serviceError)
@@ -147,7 +147,7 @@ successDefault(message: string, title:string){
 failDefault(fail: any) {
   let erros = fail.error?.errors;
   if(erros){
-    erros.forEach((erro) => this.toast.error(erro.mensagem, "Opa :("));
+    erros.forEach((erro) => this.toast.error(erro, "Opa :("));
   }
 }
 

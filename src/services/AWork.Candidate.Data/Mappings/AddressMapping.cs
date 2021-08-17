@@ -1,8 +1,8 @@
-﻿using AWork.Candidates.Domain.Models;
+﻿using AWork.Candidatos.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace AWork.Candidates.Data.Mappings
+namespace AWork.Candidatos.Data.Mappings
 {
     class AddressMapping : IEntityTypeConfiguration<Address>
     {
@@ -39,6 +39,9 @@ namespace AWork.Candidates.Data.Mappings
             builder.Property(a => a.City)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
+
+            builder.HasOne(a => a.Candidate)
+                .WithOne(x => x.Address);
 
             builder.ToTable("Address");
         }

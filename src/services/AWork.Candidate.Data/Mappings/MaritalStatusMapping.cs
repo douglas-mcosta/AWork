@@ -1,9 +1,8 @@
-﻿
-using AWork.Candidates.Domain.Models;
+﻿using AWork.Candidatos.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace AWork.Candidates.Data.Mappings
+namespace AWork.Candidatos.Data.Mappings
 {
     class MaritalStatusMapping : IEntityTypeConfiguration<MaritalStatus>
     {

@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace AWork.Candidates.Domain.Models.Validations
+namespace AWork.Candidatos.Domain.Models.Validations
 {
     public class CountryValidation : AbstractValidator<Country>
     {

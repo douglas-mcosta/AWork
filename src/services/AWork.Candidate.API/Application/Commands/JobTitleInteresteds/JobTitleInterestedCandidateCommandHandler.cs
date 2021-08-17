@@ -1,17 +1,16 @@
-﻿using AWork.Candidates.API.Extensions;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
-using AWork.Core.Communication.Mediator;
+﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.API.Extensions;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Messages;
 using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.Options;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Application.Commands.JobTitleInteresteds
+namespace AWork.Candidatos.API.Application.Commands.JobTitleInteresteds
 {
     public class JobTitleInterestedCandidateCommandHandler : CommandHandler,
         IRequestHandler<AddJobTitleInterestedCandidateCommand, ValidationResult>,

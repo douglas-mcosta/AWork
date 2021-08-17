@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace AWork.Candidates.API
+namespace AWork.Candidatos.API
 {
     public class Program
     {

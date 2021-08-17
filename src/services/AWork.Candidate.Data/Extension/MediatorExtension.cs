@@ -1,10 +1,10 @@
-﻿using AWork.Candidates.Data.Context;
+﻿using System.Linq;
+using System.Threading.Tasks;
+using AWork.Candidatos.Data.Context;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.DomainObjects;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.Data.Extension
+namespace AWork.Candidatos.Data.Extension
 {
     public static class MediatorExtension
     {

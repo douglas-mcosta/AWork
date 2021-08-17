@@ -1,15 +1,14 @@
-﻿using AWork.Candidates.Domain.Interfaces;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Core.Communication.Mediator;
-using AWork.Core.DomainObjects;
-using AWork.WebAPI.Core.Controllers;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Core.DomainObjects;
+using AWork.WebAPI.Core.Controllers;
+using AWork.WebAPI.Core.User;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace AWork.Candidates.API.V1.Controllers
+namespace AWork.Candidatos.API.Controllers.V1.Controllers
 {
     [Authorize]
     [ApiVersion("1.0")]
@@ -17,10 +16,10 @@ namespace AWork.Candidates.API.V1.Controllers
     public class DropDownController : MainController
     {
         private readonly ICandidateRepository _candidateRepository;
-        private readonly IUser _appUser;
+        private readonly IAspNetUser _appUser;
         private readonly Guid _candidateId;
 
-        public DropDownController(ICandidateRepository candidateRepository, IUser appUser)
+        public DropDownController(ICandidateRepository candidateRepository, IAspNetUser appUser)
         {
             _candidateRepository = candidateRepository;
             _appUser = appUser;

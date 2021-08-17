@@ -1,6 +1,7 @@
-using AWork.Core.DomainObjects;
 using System.Collections.Generic;
-namespace AWork.Candidates.Domain.Models
+using AWork.Core.DomainObjects;
+
+namespace AWork.Candidatos.Domain.Models
 {
     //Nivel do Curso
     public class CourseLevel : Entity

@@ -1,8 +1,8 @@
-﻿using AWork.Core.Messages;
+﻿using System;
+using AWork.Core.Messages;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.JobTitleInteresteds
+namespace AWork.Candidatos.API.Application.Commands.JobTitleInteresteds
 {
     public class ChangeFavoriteJobTitleInterestedCommand : Command
     {

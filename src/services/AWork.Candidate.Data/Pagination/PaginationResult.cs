@@ -1,9 +1,9 @@
-using AWork.Candidates.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AWork.Candidatos.Domain.Interfaces;
 
-namespace AWork.Candidates.Data.Pagination
+namespace AWork.Candidatos.Data.Pagination
 {
     public class PaginationResult<TEntity> : IPaginationResult<TEntity>
     {

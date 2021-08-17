@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AWork.Candidates.API.Configurations
+namespace AWork.Candidatos.API.Configurations
 {
     public static class ApiVersionConfig
     {

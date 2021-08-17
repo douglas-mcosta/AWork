@@ -1,13 +1,15 @@
-using AWork.Candidates.API.Application.Commands.CandidateData;
-using AWork.Candidates.API.Application.Commands.Phones;
-using AWork.Candidates.API.Application.Events.Phones;
-using AWork.Candidates.API.Application.Queries;
-using AWork.Candidates.API.Extensions;
-using AWork.Candidates.Data.Context;
-using AWork.Candidates.Data.Repository;
-using AWork.Candidates.Domain.Interfaces;
-using AWork.Candidates.Domain.Interfaces.Repository;
+using AWork.Candidatos.API.Application.Commands.CandidateData;
+using AWork.Candidatos.API.Application.Commands.Phones;
+using AWork.Candidatos.API.Application.Events.Phones;
+using AWork.Candidatos.API.Application.Queries;
+using AWork.Candidatos.API.Extensions;
+using AWork.Candidatos.Data.Context;
+using AWork.Candidatos.Data.Repository;
+using AWork.Candidatos.Domain.Interfaces;
+using AWork.Candidatos.Domain.Interfaces.Repository;
 using AWork.Core.Communication.Mediator;
+using AWork.WebAPI.Core.Identity;
+using AWork.WebAPI.Core.User;
 using FluentValidation.Results;
 using KissLog;
 using MediatR;
@@ -16,7 +18,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace AWork.Candidates.API.Configurations
+namespace AWork.Candidatos.API.Configurations
 {
     public static class DependenciesInjectionConfig
     {
@@ -48,7 +50,7 @@ namespace AWork.Candidates.API.Configurations
             //Config
             services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddScoped<IUser, AspNetUser>();
+            services.AddScoped<IAspNetUser, AspNetUser>();
             services.AddScoped((context) => Logger.Factory.Get());
 
             return services;

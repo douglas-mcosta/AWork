@@ -1,7 +1,7 @@
-﻿using AWork.Core.Messages;
-using System;
+﻿using System;
+using AWork.Core.Messages;
 
-namespace AWork.Candidates.API.Application.Events
+namespace AWork.Candidatos.API.Application.Events
 {
     public class UpdatedGoalCandidateEvent : Event
     {

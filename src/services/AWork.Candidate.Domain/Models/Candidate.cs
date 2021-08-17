@@ -1,10 +1,10 @@
-﻿using AWork.Core.DomainObjects;
-using AWork.Core.DomainObjects.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using AWork.Core.DomainObjects;
+using AWork.Core.DomainObjects.Enums;
 
-namespace AWork.Candidates.Domain.Models
+namespace AWork.Candidatos.Domain.Models
 {
     public class Candidate : Entity, IAggregateRoot
     {
@@ -153,6 +153,7 @@ namespace AWork.Candidates.Domain.Models
         public void AddAddress(Address address)
         {
             AddressId = address.Id;
+            address.AssociateCandidateAddress(Id);
             Address = address;
         }
         public void UpdateAddress(Address address)

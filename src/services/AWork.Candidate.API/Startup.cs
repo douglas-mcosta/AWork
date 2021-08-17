@@ -1,6 +1,5 @@
-using AutoMapper;
-using AWork.Candidates.API.Configurations;
-using AWork.Candidates.Data.Context;
+using AWork.Candidatos.API.Configurations;
+using AWork.Candidatos.Data.Context;
 using AWork.WebAPI.Core.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -11,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace AWork.Candidates.API
+namespace AWork.Candidatos.API
 {
     public class Startup
     {

@@ -1,10 +1,10 @@
-﻿using AWork.Core.DomainObjects;
+﻿using System;
+using AWork.Core.DomainObjects;
 using AWork.Core.DomainObjects.Enums;
 using AWork.Core.Messages;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.CandidateData
+namespace AWork.Candidatos.API.Application.Commands.CandidateData
 {
     public class RegisterCandidateCommand : Command
     {

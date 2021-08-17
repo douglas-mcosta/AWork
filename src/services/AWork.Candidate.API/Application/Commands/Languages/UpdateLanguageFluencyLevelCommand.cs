@@ -1,10 +1,10 @@
-﻿using AWork.Core.DomainObjects.Enums;
+﻿using System;
+using AWork.Core.DomainObjects.Enums;
 using AWork.Core.Messages;
 using AWork.Core.Utils;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.Languages
+namespace AWork.Candidatos.API.Application.Commands.Languages
 {
     public class UpdateLanguageFluencyLevelCommand : Command
     {

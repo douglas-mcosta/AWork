@@ -1,10 +1,9 @@
 using AutoMapper;
-using AWork.Candidates.API.Application.Queries.ViewModels;
-using AWork.Candidates.Domain.Models;
+using AWork.Candidatos.API.Application.Queries.ViewModels;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.DomainObjects.Enums;
-using System;
 
-namespace AWork.Candidates.API.Application.AutoMapper
+namespace AWork.Candidatos.API.Application.AutoMapper
 {
     public class AutoMapperConfig : Profile
     {

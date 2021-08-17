@@ -1,8 +1,8 @@
-﻿using AWork.Core.DomainObjects.Enums;
+﻿using System;
+using AWork.Core.DomainObjects.Enums;
 using AWork.Core.Messages;
-using System;
 
-namespace AWork.Candidates.API.Application.Events.Phones
+namespace AWork.Candidatos.API.Application.Events.Phones
 {
     public class UpdatePhoneCandidateEvent : Event
     {

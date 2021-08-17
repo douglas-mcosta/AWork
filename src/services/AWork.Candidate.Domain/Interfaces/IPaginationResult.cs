@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AWork.Candidates.Domain.Interfaces
+namespace AWork.Candidatos.Domain.Interfaces
 {
     public interface IPaginationResult<TEntity>
     {

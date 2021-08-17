@@ -1,17 +1,17 @@
-﻿using AWork.Candidates.API.Application.Events.Phones;
-using AWork.Candidates.API.Extensions;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
+﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Events.Phones;
+using AWork.Candidatos.API.Extensions;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Messages;
 using FluentValidation.Results;
 using MediatR;
 using Microsoft.Extensions.Options;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Application.Commands.Phones
+namespace AWork.Candidatos.API.Application.Commands.Phones
 {
     public class PhoneCandidateCommandHandler : CommandHandler,
         IRequestHandler<AddPhoneCandidateCommand, ValidationResult>,

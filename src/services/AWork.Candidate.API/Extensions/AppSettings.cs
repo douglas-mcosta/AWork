@@ -1,4 +1,4 @@
-﻿namespace AWork.Candidates.API.Extensions
+﻿namespace AWork.Candidatos.API.Extensions
 {
     public class AppSettings
     {

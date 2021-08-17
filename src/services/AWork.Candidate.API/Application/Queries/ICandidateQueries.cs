@@ -1,9 +1,9 @@
-﻿using AWork.Candidates.API.Application.Queries.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Queries.ViewModels;
 
-namespace AWork.Candidates.API.Application.Queries
+namespace AWork.Candidatos.API.Application.Queries
 {
     public interface ICandidateQueries
     {

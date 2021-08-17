@@ -1,8 +1,8 @@
-﻿using MediatR;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace AWork.Candidates.API.Application.Events
+namespace AWork.Candidatos.API.Application.Events
 {
     public class CandidateEventHandler :
         INotificationHandler<RegisteredCandidateEvent>,

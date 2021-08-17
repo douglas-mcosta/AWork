@@ -1,8 +1,7 @@
-
-using AWork.Candidates.Domain.Models;
+using AWork.Candidatos.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AWork.Candidates.Data.Mappings
+namespace AWork.Candidatos.Data.Mappings
 {
     public class LanguageMapping : IEntityTypeConfiguration<Language>
     {

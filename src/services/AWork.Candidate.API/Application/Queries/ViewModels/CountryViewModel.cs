@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace AWork.Candidates.API.Application.Queries.ViewModels
+namespace AWork.Candidatos.API.Application.Queries.ViewModels
 {
     public class CountryViewModel
     {

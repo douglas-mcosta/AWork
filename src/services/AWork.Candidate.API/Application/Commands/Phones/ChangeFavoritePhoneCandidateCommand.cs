@@ -1,8 +1,8 @@
-﻿using AWork.Core.Messages;
+﻿using System;
+using AWork.Core.Messages;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.Phones
+namespace AWork.Candidatos.API.Application.Commands.Phones
 {
     public class ChangeFavoritePhoneCandidateCommand : Command
     {

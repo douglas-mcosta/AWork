@@ -1,10 +1,10 @@
-﻿using AWork.Candidates.API.Services;
+﻿using AWork.Candidatos.API.Services;
 using AWork.Core.Utils;
 using AWork.MessageBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AWork.Candidates.API.Configurations
+namespace AWork.Candidatos.API.Configurations
 {
     public static class MessageBusConfig
     {

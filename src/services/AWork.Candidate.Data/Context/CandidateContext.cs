@@ -1,15 +1,14 @@
-﻿
-using AWork.Candidates.Data.Extension;
-using AWork.Candidates.Domain.Models;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
+using AWork.Candidatos.Data.Extension;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.Data;
 using AWork.Core.Messages;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.Data.Context
+namespace AWork.Candidatos.Data.Context
 {
     public class CandidateContext : DbContext, IUnitOfWork
     {

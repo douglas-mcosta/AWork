@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AWork.Candidates.Domain.Models.Validations.Docs
+namespace AWork.Candidatos.Domain.Models.Validations.Docs
 {
     public class ValidaCPF
     {

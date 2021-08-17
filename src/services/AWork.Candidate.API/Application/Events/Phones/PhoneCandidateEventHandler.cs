@@ -1,8 +1,8 @@
-﻿using MediatR;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 
-namespace AWork.Candidates.API.Application.Events.Phones
+namespace AWork.Candidatos.API.Application.Events.Phones
 {
     public class PhoneCandidateEventHandler :
         INotificationHandler<AddPhoneCandidateEvent>

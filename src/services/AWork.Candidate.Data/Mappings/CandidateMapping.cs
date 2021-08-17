@@ -1,13 +1,13 @@
-﻿
+﻿using AWork.Candidatos.Domain.Models;
 using AWork.Core.DomainObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace AWork.Candidates.Data.Mappings
+namespace AWork.Candidatos.Data.Mappings
 {
-    public class CandidateMapping : IEntityTypeConfiguration<Domain.Models.Candidate>
+    public class CandidateMapping : IEntityTypeConfiguration<Candidate>
     {
-        public void Configure(EntityTypeBuilder<Domain.Models.Candidate> builder)
+        public void Configure(EntityTypeBuilder<Candidate> builder)
         {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.FirstName)
@@ -62,6 +62,10 @@ namespace AWork.Candidates.Data.Mappings
             .HasForeignKey(p => p.ReligionId);
 
             builder.HasOne(p => p.Nationality);
+
+            builder.HasOne(p => p.Address)
+                .WithOne(x => x.Candidate)
+                .HasForeignKey<Address>(x=>x.CandidateId);
 
             builder.ToTable("Candidate");
         }

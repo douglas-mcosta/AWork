@@ -1,12 +1,12 @@
-﻿using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Messages;
 using FluentValidation.Results;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Application.Commands.Adresses
+namespace AWork.Candidatos.API.Application.Commands.Adresses
 {
     public class AddressCandidateCommandHandler : CommandHandler,
         IRequestHandler<AddAddressCandidateCommand, ValidationResult>,
@@ -50,7 +50,8 @@ namespace AWork.Candidates.API.Application.Commands.Adresses
             }
 
             var address = new Address(message.Id, message.CountryId, message.ZipCode, message.District, message.Street, message.Number, message.Complement, message.State, message.City);
-             _candidateRepository.UpdateAddress(address);
+            address.AssociateCandidateAddress(message.CandidateId); 
+            _candidateRepository.UpdateAddress(address);
 
             return await SaveChanges(_candidateRepository.UnitOfWork);
         }

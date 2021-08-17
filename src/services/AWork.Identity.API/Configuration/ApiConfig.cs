@@ -11,6 +11,25 @@ namespace AWork.Identity.API.Configuration
         public static IServiceCollection AddApiConfiguration(this IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("Development",
+                    builder =>
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+
+                options.AddPolicy("Production",
+                    builder =>
+                        builder
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .WithOrigins("http://awork.douglasmedeiros.com/", "https://awork-api.azurewebsites.net/")
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                            .AllowAnyHeader());
+            });
             return services;
         }
 
@@ -18,8 +37,10 @@ namespace AWork.Identity.API.Configuration
         {
             if (env.IsDevelopment())
             {
+                app.UseCors("Development");
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("Production");
 
             app.UseHttpsRedirection();
 

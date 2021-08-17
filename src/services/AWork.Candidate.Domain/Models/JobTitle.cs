@@ -1,7 +1,8 @@
-﻿using AWork.Core.DomainObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
-namespace AWork.Candidates.Domain.Models
+using AWork.Core.DomainObjects;
+
+namespace AWork.Candidatos.Domain.Models
 {
     //Cargo
     public class JobTitle : Entity

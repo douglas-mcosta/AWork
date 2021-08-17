@@ -1,9 +1,9 @@
-﻿using AWork.Core.DomainObjects.Enums;
+﻿using System;
+using AWork.Core.DomainObjects.Enums;
 using AWork.Core.Messages;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.Phones
+namespace AWork.Candidatos.API.Application.Commands.Phones
 {
     public class UpdatePhoneCandidateCommand : Command
     {

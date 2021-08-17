@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
-namespace AWork.Candidates.Domain.Interfaces
+namespace AWork.WebAPI.Core.User
 {
-    public interface IUser
+    public interface IAspNetUser
     {
         string Name { get; }
         Guid  CandidateId { get; }
@@ -12,8 +13,11 @@ namespace AWork.Candidates.Domain.Interfaces
         string GetUserEmail();
         bool IsAuthenticated();
         bool IsInRole(string role);
+        string GetUserToken();
         IEnumerable<Claim> GetClaimsIdentity();
         //IEnumerable<Claim> GetEntitiesUser();
+        HttpContext GetHttpContext();
+
 
     }
 }

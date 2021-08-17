@@ -1,4 +1,3 @@
-using AWork.Candidates.Domain.Interfaces;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.Messages.Integration;
 using AWork.Identity.API.Data;

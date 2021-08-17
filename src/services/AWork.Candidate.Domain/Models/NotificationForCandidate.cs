@@ -1,6 +1,7 @@
-﻿using AWork.Core.DomainObjects;
-using System;
-namespace AWork.Candidates.Domain.Models
+﻿using System;
+using AWork.Core.DomainObjects;
+
+namespace AWork.Candidatos.Domain.Models
 {
     //Notificação para o Candidato
     public class NotificationForCandidate : Entity

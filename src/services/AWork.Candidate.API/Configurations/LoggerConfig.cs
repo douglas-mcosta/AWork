@@ -1,13 +1,12 @@
+using System;
+using System.Diagnostics;
+using System.Text;
 using KissLog.AspNetCore;
 using KissLog.CloudListeners.RequestLogsListener;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Diagnostics;
-using System.Text;
 
-
-namespace AWork.Candidates.API.Configurations
+namespace AWork.Candidatos.API.Configurations
 {
     public static class LoggerConfig
     {

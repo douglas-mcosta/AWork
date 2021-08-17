@@ -1,7 +1,7 @@
 export class Language {
     id: string;
-    personId: string;
+    candidateId: string;
     languageId: string;
-    languageLevel: number =1;
+    fluencyLevel: number =1;
     languageName: string;
 }

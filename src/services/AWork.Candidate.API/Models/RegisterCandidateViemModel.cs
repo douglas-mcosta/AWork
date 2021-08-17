@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using AWork.Identity.API.Models;
 
-namespace AWork.Identity.API.Models
+namespace AWork.Candidatos.API.Models
 {
     public class RegisterCandidateViemModel : RegisterUserViewModel
     {

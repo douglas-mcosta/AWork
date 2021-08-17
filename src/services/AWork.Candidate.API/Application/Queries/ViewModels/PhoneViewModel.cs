@@ -1,9 +1,9 @@
-using AWork.Core.DomainObjects.Enums;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using AWork.Core.DomainObjects.Enums;
 
-namespace AWork.Candidates.API.Application.Queries.ViewModels
+namespace AWork.Candidatos.API.Application.Queries.ViewModels
 {
     public class PhoneViewModel
     {

@@ -1,8 +1,8 @@
-﻿using AWork.Core.Messages;
+﻿using System;
+using AWork.Core.Messages;
 using FluentValidation;
-using System;
 
-namespace AWork.Candidates.API.Application.Commands.Adresses
+namespace AWork.Candidatos.API.Application.Commands.Adresses
 {
     public class UpdateAddressCandidateCommand : Command
     {

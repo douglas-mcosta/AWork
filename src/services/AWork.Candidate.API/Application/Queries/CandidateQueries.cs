@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using AWork.Candidates.API.Application.Queries.ViewModels;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using AWork.Candidatos.API.Application.Queries.ViewModels;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 
-namespace AWork.Candidates.API.Application.Queries
+namespace AWork.Candidatos.API.Application.Queries
 {
     public class CandidateQueries : ICandidateQueries
     {

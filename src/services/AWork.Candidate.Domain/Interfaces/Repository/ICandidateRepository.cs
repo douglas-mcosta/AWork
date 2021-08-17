@@ -1,12 +1,12 @@
-﻿using AWork.Candidates.Domain.Models;
-using AWork.Core.Data;
-using AWork.Core.DomainObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using AWork.Candidatos.Domain.Models;
+using AWork.Core.Data;
+using AWork.Core.DomainObjects;
 
-namespace AWork.Candidates.Domain.Interfaces.Repository
+namespace AWork.Candidatos.Domain.Interfaces.Repository
 {
     public interface ICandidateRepository : IRepository<Candidate>
     {

@@ -1,4 +1,3 @@
-using AWork.Candidates.Domain.Interfaces;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.Messages;
 using FluentValidation.Results;

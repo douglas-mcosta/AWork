@@ -1,7 +1,7 @@
-﻿using AWork.Core.DomainObjects;
-using System;
+﻿using System;
+using AWork.Core.DomainObjects;
 
-namespace AWork.Candidates.Domain.Models
+namespace AWork.Candidatos.Domain.Models
 {
     //Formação Profissional  - Experiencia Profisional
     public class ProfessionalBackground : Entity

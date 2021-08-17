@@ -236,10 +236,11 @@ export class AddressComponent implements OnInit {
     this.addressForm.controls.city.disable();
     this.addressForm.controls.state.disable();
   }
+  
   fail(fail: any) {
     let erros = fail.error?.errors;
     if(erros){
-      erros.forEach((erro) => this.toast.error(erro.mensagem, "Opa :("));
+      erros.forEach((erro) => this.toast.error(erro, "Opa :("));
     }
   }
 

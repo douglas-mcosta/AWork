@@ -37,9 +37,10 @@ export class LanguageComponent implements OnInit {
 
 
   ngOnInit(): void {
-        this.languages = this.route.snapshot.data['candidate'].languages;
-        this.personId = this.route.snapshot.data['candidate'].id;
-        this.languageDropdown$ = this.dropdown.languageDropdown$(this.personId);
+    console.log(this.route.snapshot.data['candidate'].languages)
+    this.personId = this.route.snapshot.data['candidate'].id;
+    this.languageDropdown$ = this.dropdown.languageDropdown$(this.personId);
+    this.languages = this.route.snapshot.data['candidate'].languages;
 
         this.languagePersonForm = this.fb.group({
           languageId: ["", Validators.required],
@@ -51,9 +52,9 @@ export class LanguageComponent implements OnInit {
 
     console.log(languagePerson)
     if(!languagePerson) return;
-    let languageLevel = CurrencyUtils.StringToInt(languagePerson.languageLevel);
+    let languageLevel = CurrencyUtils.StringToInt(languagePerson.fluencyLevel);
     console.log(languageLevel);
-    this.personService.updateLanguageLevel(languagePerson.id, languagePerson.languageLevel)
+    this.personService.updateLanguageLevel(languagePerson.id, languagePerson.fluencyLevel)
     .subscribe(
       () => this.personService.successDefault("Nível de fluência atualizado.","Sucesso"),
       (fail) => this.personService.failDefault(fail)
@@ -62,7 +63,7 @@ export class LanguageComponent implements OnInit {
 
   addLanguagePerson(){
     this.language = Object.assign({},this.language,this.languagePersonForm.value);
-    this.language.personId = this.personId;
+    this.language.candidateId = this.personId;
     console.log(this.language)
     this.personService.addPersonLanguage(this.language)
     .subscribe(

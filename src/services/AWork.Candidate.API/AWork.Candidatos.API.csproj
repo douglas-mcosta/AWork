@@ -40,12 +40,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\building blocks\AWork.MessageBus\AWork.MessageBus.csproj" />
     <ProjectReference Include="..\..\building blocks\AWork.WebAPI.Core\AWork.WebAPI.Core.csproj" />
-    <ProjectReference Include="..\AWork.Candidate.Data\AWork.Candidates.Data.csproj" />
-    <ProjectReference Include="..\AWork.Candidate.Domain\AWork.Candidates.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\AWork.Candidate.Data\AWork.Candidatos.Data.csproj" />
+    <ProjectReference Include="..\AWork.Candidate.Domain\AWork.Candidatos.Domain.csproj" />
   </ItemGroup>
 
 </Project>

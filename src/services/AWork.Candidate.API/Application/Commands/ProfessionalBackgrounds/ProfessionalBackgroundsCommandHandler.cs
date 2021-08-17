@@ -1,13 +1,12 @@
-﻿using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Messages;
 using FluentValidation.Results;
 using MediatR;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Application.Commands.ProfessionalBackgrounds
+namespace AWork.Candidatos.API.Application.Commands.ProfessionalBackgrounds
 {
     public class ProfessionalBackgroundsCommandHandler : CommandHandler,
         IRequestHandler<AddProfessionalBackgroundCandidateCommand, ValidationResult>

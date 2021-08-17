@@ -1,14 +1,14 @@
-﻿using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
-using AWork.Core.Messages;
-using FluentValidation.Results;
-using MediatR;
-using System;
+﻿using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
+using AWork.Core.Messages;
+using FluentValidation.Results;
+using MediatR;
 
-namespace AWork.Candidates.API.Application.Commands.Languages
+namespace AWork.Candidatos.API.Application.Commands.Languages
 {
     public class LanguageCandidateHandler : CommandHandler,
         IRequestHandler<AddLanguageCandidateCommand, ValidationResult>,

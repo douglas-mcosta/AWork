@@ -1,14 +1,13 @@
-﻿using AWork.Candidates.API.Application.Events;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
-using AWork.Core.Communication.Mediator;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Events;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
 using AWork.Core.Messages;
 using FluentValidation.Results;
 using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Application.Commands.CandidateData
+namespace AWork.Candidatos.API.Application.Commands.CandidateData
 {
     public class CandidateCommandHandler : CommandHandler,
         IRequestHandler<RegisterCandidateCommand, ValidationResult>,

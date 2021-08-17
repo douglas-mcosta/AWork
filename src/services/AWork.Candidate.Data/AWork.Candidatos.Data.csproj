@@ -34,7 +34,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\building blocks\AWork.Core\AWork.Core.csproj" />
-    <ProjectReference Include="..\AWork.Candidate.Domain\AWork.Candidates.Domain.csproj" />
+    <ProjectReference Include="..\AWork.Candidate.Domain\AWork.Candidatos.Domain.csproj" />
   </ItemGroup>
 
 </Project>

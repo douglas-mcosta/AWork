@@ -6,5 +6,7 @@
 export const environment = {
   production: false,
   urlServiceV1: "https://localhost:5001/api/v1/",
+  urlCandidateV1: "https://localhost:44334/api/v1/",
+  urlIdentity: "https://localhost:44371/api/",
   googleMapAddress: "https://www.google.com/maps/embed/v1/place?key=AIzaSyAP0WKpL7uTRHGKWyakgQXbW6FUhrrA5pE&q=" 
 };

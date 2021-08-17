@@ -9,7 +9,8 @@ import { throwError } from "rxjs";
 })
 export abstract class BaseService {
 
-  protected urlServiceV1: string = environment.urlServiceV1;
+  protected urlServiceV1: string = environment.urlCandidateV1;
+  protected urlIdentityV1: string = environment.urlIdentity;
   public localStorage = new LocalStorageUtils();
   constructor() {}
 

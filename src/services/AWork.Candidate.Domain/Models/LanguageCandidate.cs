@@ -1,8 +1,8 @@
-﻿using AWork.Core.DomainObjects;
+﻿using System;
+using AWork.Core.DomainObjects;
 using AWork.Core.DomainObjects.Enums;
-using System;
 
-namespace AWork.Candidates.Domain.Models
+namespace AWork.Candidatos.Domain.Models
 {
     //Idiomas do Candidato e seu nível
     public class LanguageCandidate : Entity

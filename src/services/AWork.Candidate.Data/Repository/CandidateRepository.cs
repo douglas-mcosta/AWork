@@ -1,16 +1,16 @@
-using AWork.Candidates.Data.Context;
-using AWork.Candidates.Domain.Interfaces.Repository;
-using AWork.Candidates.Domain.Models;
-using AWork.Core.Data;
-using AWork.Core.DomainObjects;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using AWork.Candidatos.Data.Context;
+using AWork.Candidatos.Domain.Interfaces.Repository;
+using AWork.Candidatos.Domain.Models;
+using AWork.Core.Data;
+using AWork.Core.DomainObjects;
+using Microsoft.EntityFrameworkCore;
 
-namespace AWork.Candidates.Data.Repository
+namespace AWork.Candidatos.Data.Repository
 {
     public class CandidateRepository : ICandidateRepository
     {
@@ -75,7 +75,7 @@ namespace AWork.Candidates.Data.Repository
 
         public bool HasCandidateWithThisCPF(string cpf)
         {
-            return _context.Candidate.AsNoTracking().Where(p => p.CPF.Number == cpf).Any();
+            return _context.Candidate.AsNoTracking().Any(p => p.CPF.Number == cpf);
         }
       
         public async Task<Candidate> FindById(Guid CandidateId)

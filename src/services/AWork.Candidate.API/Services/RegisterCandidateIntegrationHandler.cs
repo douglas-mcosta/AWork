@@ -1,15 +1,15 @@
-﻿using AWork.Candidates.API.Application.Commands.CandidateData;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Commands.CandidateData;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.Messages.Integration;
 using AWork.MessageBus;
 using FluentValidation.Results;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.Services
+namespace AWork.Candidatos.API.Services
 {
     public class RegisterCandidateIntegrationHandler : BackgroundService
     {

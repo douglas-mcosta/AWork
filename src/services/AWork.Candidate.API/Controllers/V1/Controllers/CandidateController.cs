@@ -1,23 +1,24 @@
-using AWork.Candidates.API.Application.Commands.Adresses;
-using AWork.Candidates.API.Application.Commands.CandidateData;
-using AWork.Candidates.API.Application.Commands.JobTitleInteresteds;
-using AWork.Candidates.API.Application.Commands.Languages;
-using AWork.Candidates.API.Application.Commands.Phones;
-using AWork.Candidates.API.Application.Queries;
-using AWork.Candidates.API.Application.Queries.ViewModels;
-using AWork.Candidates.Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AWork.Candidatos.API.Application.Commands.Adresses;
+using AWork.Candidatos.API.Application.Commands.CandidateData;
+using AWork.Candidatos.API.Application.Commands.JobTitleInteresteds;
+using AWork.Candidatos.API.Application.Commands.Languages;
+using AWork.Candidatos.API.Application.Commands.Phones;
+using AWork.Candidatos.API.Application.Queries;
+using AWork.Candidatos.API.Application.Queries.ViewModels;
+using AWork.Candidatos.Domain.Interfaces;
 using AWork.Core.Communication.Mediator;
 using AWork.Core.DomainObjects.Enums;
 using AWork.Core.Utils;
 using AWork.WebAPI.Core.Controllers;
 using AWork.WebAPI.Core.Identity;
+using AWork.WebAPI.Core.User;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
-namespace AWork.Candidates.API.V1.Controllers
+namespace AWork.Candidatos.API.Controllers.V1.Controllers
 {
     [Authorize]
     [ApiVersion("1.0")]
@@ -26,10 +27,10 @@ namespace AWork.Candidates.API.V1.Controllers
     {
         private readonly ICandidateQueries _candidateQueries;
         protected readonly IMediatorHandler _mediatorHandler;
-        private readonly IUser _appUser;
+        private readonly IAspNetUser _appUser;
         private readonly Guid _candidateId;
 
-        public CandidateController(IUser appUser,
+        public CandidateController(IAspNetUser appUser,
                                     IMediatorHandler mediatorHandler, ICandidateQueries candidateQueries)
         {
             _mediatorHandler = mediatorHandler;
@@ -269,7 +270,7 @@ namespace AWork.Candidates.API.V1.Controllers
             languageCandidate.Id = Guid.NewGuid();
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var candidate = await _candidateQueries.FindById(languageCandidate.CandidateId);
+            var candidate = await _candidateQueries.FindById(_candidateId);
 
             if (candidate == null)
             {

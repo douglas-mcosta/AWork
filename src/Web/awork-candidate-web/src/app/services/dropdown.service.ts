@@ -54,7 +54,7 @@ export class DropdownService extends BaseService {
 
     languageDropdown$ = (personId: string) => this.http
     .get<Dropdown[]>(
-      `${this.urlServiceV1}dropdown/languages/${personId}`,
+      `${this.urlServiceV1}dropdown/languages/`,
       this.getHeadersAuth()
     )
     .pipe(map(this.extractData), catchError(this.serviceError));
